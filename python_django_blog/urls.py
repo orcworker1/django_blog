@@ -1,5 +1,5 @@
 """
-URL configuration for django_blog project.
+URL configuration for python_django_blog project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -15,12 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django_blog import views
+from django.urls import path, include
+from python_django_blog import views
 
 urlpatterns = [
     path("", views.index),
-    path("about/",views.about),
+    path("about/", views.about),
+    path("articles/", include("python_django_blog.article.urls")),
     path("admin/", admin.site.urls),
 ]
 
